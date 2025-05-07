@@ -49,6 +49,22 @@ target 'VoiceGuardMobile' do
       # :ccache_enabled => true
     )
     
+    # Fix RCT-Folly issues
+    installer.pods_project.targets.each do |target|
+      if target.name == 'RCT-Folly'
+        target.build_configurations.each do |config|
+          # Add preprocessor definitions to disable problematic features
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ["$(inherited)"]
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'FOLLY_HAVE_CLOCK_GETTIME=1'
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'FOLLY_NO_CONFIG=1'
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'FOLLY_MOBILE=1'
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'FOLLY_USE_LIBCPP=1'
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'FOLLY_CFG_NO_COROUTINES=1'
+          config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] << 'FOLLY_CONV_USE_TO_CHARS=0'
+        end
+      end
+    end
+    
     # Fix vector icons
     installer.pods_project.targets.each do |target|
       if target.name == 'RNVectorIcons'

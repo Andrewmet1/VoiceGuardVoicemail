@@ -8,31 +8,89 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		26D98599D56F290FB9296FE1 /* libPods-VoiceGuardMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FAF117CCEFD1BA51876923 /* libPods-VoiceGuardMobile.a */; };
+		1A8946552DCAF1A40074D2A4 /* VoiceGuardShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 1A89464B2DCAF1A40074D2A4 /* VoiceGuardShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		8C40EE88EB652BA6A3B542C4 /* libPods-VoiceGuardMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6483E0B43404305D54813A4D /* libPods-VoiceGuardMobile.a */; };
 		B54789FBAAC991AB25CFBCFE /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1A8946532DCAF1A40074D2A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A89464A2DCAF1A40074D2A4;
+			remoteInfo = VoiceGuardShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1A89465A2DCAF1A40074D2A4 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1A8946552DCAF1A40074D2A4 /* VoiceGuardShareExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		13B07F961A680F5B00A75B9A /* VoiceGuardMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoiceGuardMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = VoiceGuardMobile/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = VoiceGuardMobile/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = VoiceGuardMobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		18EF99BE1980799EAD8FC678 /* Pods-VoiceGuardMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceGuardMobile.debug.xcconfig"; path = "Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile.debug.xcconfig"; sourceTree = "<group>"; };
+		1A89464B2DCAF1A40074D2A4 /* VoiceGuardShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VoiceGuardShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		56BB83BD4D6A5FB9BB87F3FB /* Pods-VoiceGuardMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceGuardMobile.release.xcconfig"; path = "Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile.release.xcconfig"; sourceTree = "<group>"; };
+		6483E0B43404305D54813A4D /* libPods-VoiceGuardMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VoiceGuardMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = VoiceGuardMobile/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = VoiceGuardMobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		C70C3E27C49B581BAA751025 /* Pods-VoiceGuardMobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceGuardMobile.debug.xcconfig"; path = "Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile.debug.xcconfig"; sourceTree = "<group>"; };
-		C7FAF117CCEFD1BA51876923 /* libPods-VoiceGuardMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VoiceGuardMobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA2C76597E9231D27C517FA8 /* Pods-VoiceGuardMobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VoiceGuardMobile.release.xcconfig"; path = "Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		1A8946562DCAF1A40074D2A4 /* Exceptions for "VoiceGuardShareExtension" folder in "VoiceGuardShareExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 1A89464A2DCAF1A40074D2A4 /* VoiceGuardShareExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		1A89464C2DCAF1A40074D2A4 /* VoiceGuardShareExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				1A8946562DCAF1A40074D2A4 /* Exceptions for "VoiceGuardShareExtension" folder in "VoiceGuardShareExtension" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = VoiceGuardShareExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26D98599D56F290FB9296FE1 /* libPods-VoiceGuardMobile.a in Frameworks */,
+				8C40EE88EB652BA6A3B542C4 /* libPods-VoiceGuardMobile.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A8946482DCAF1A40074D2A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				C7FAF117CCEFD1BA51876923 /* libPods-VoiceGuardMobile.a */,
+				6483E0B43404305D54813A4D /* libPods-VoiceGuardMobile.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -72,6 +130,7 @@
 			children = (
 				13B07FAE1A68108700A75B9A /* VoiceGuardMobile */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				1A89464C2DCAF1A40074D2A4 /* VoiceGuardShareExtension */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
@@ -85,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* VoiceGuardMobile.app */,
+				1A89464B2DCAF1A40074D2A4 /* VoiceGuardShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -92,8 +152,8 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C70C3E27C49B581BAA751025 /* Pods-VoiceGuardMobile.debug.xcconfig */,
-				DA2C76597E9231D27C517FA8 /* Pods-VoiceGuardMobile.release.xcconfig */,
+				18EF99BE1980799EAD8FC678 /* Pods-VoiceGuardMobile.debug.xcconfig */,
+				56BB83BD4D6A5FB9BB87F3FB /* Pods-VoiceGuardMobile.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -105,22 +165,44 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "VoiceGuardMobile" */;
 			buildPhases = (
-				E223B92DB053F2DF7BAF1F04 /* [CP] Check Pods Manifest.lock */,
+				B29F64363682EC557F2A4727 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				2BF1F220E18FE8A7D0F0BAC1 /* [CP] Embed Pods Frameworks */,
-				2B22556D7615C2724E4FC31F /* [CP] Copy Pods Resources */,
+				1A89465A2DCAF1A40074D2A4 /* Embed Foundation Extensions */,
+				823B1107ABD0B52DC79EAF52 /* [CP] Embed Pods Frameworks */,
+				8BBF2A0DF9CBB29CC6CD7E7C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1A8946542DCAF1A40074D2A4 /* PBXTargetDependency */,
 			);
 			name = VoiceGuardMobile;
 			productName = VoiceGuardMobile;
 			productReference = 13B07F961A680F5B00A75B9A /* VoiceGuardMobile.app */;
 			productType = "com.apple.product-type.application";
+		};
+		1A89464A2DCAF1A40074D2A4 /* VoiceGuardShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A8946572DCAF1A40074D2A4 /* Build configuration list for PBXNativeTarget "VoiceGuardShareExtension" */;
+			buildPhases = (
+				1A8946472DCAF1A40074D2A4 /* Sources */,
+				1A8946482DCAF1A40074D2A4 /* Frameworks */,
+				1A8946492DCAF1A40074D2A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				1A89464C2DCAF1A40074D2A4 /* VoiceGuardShareExtension */,
+			);
+			name = VoiceGuardShareExtension;
+			productName = VoiceGuardShareExtension;
+			productReference = 1A89464B2DCAF1A40074D2A4 /* VoiceGuardShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -128,10 +210,14 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1630;
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
+					};
+					1A89464A2DCAF1A40074D2A4 = {
+						CreatedOnToolsVersion = 16.3;
 					};
 				};
 			};
@@ -149,6 +235,7 @@
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* VoiceGuardMobile */,
+				1A89464A2DCAF1A40074D2A4 /* VoiceGuardShareExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -161,6 +248,13 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				B54789FBAAC991AB25CFBCFE /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A8946492DCAF1A40074D2A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,24 +277,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		2B22556D7615C2724E4FC31F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2BF1F220E18FE8A7D0F0BAC1 /* [CP] Embed Pods Frameworks */ = {
+		823B1107ABD0B52DC79EAF52 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -217,7 +294,24 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E223B92DB053F2DF7BAF1F04 /* [CP] Check Pods Manifest.lock */ = {
+		8BBF2A0DF9CBB29CC6CD7E7C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VoiceGuardMobile/Pods-VoiceGuardMobile-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B29F64363682EC557F2A4727 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -250,12 +344,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1A8946472DCAF1A40074D2A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A8946542DCAF1A40074D2A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A89464A2DCAF1A40074D2A4 /* VoiceGuardShareExtension */;
+			targetProxy = 1A8946532DCAF1A40074D2A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C70C3E27C49B581BAA751025 /* Pods-VoiceGuardMobile.debug.xcconfig */;
+			baseConfigurationReference = 18EF99BE1980799EAD8FC678 /* Pods-VoiceGuardMobile.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -263,7 +372,7 @@
 				DEVELOPMENT_TEAM = BS2HQRSW79;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = VoiceGuardMobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -284,14 +393,14 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA2C76597E9231D27C517FA8 /* Pods-VoiceGuardMobile.release.xcconfig */;
+			baseConfigurationReference = 56BB83BD4D6A5FB9BB87F3FB /* Pods-VoiceGuardMobile.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = BS2HQRSW79;
 				INFOPLIST_FILE = VoiceGuardMobile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,6 +415,87 @@
 				PRODUCT_NAME = VoiceGuardMobile;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		1A8946582DCAF1A40074D2A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = BS2HQRSW79;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VoiceGuardShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VoiceGuardShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.VoiceGuardMobile.VoiceGuardShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1A8946592DCAF1A40074D2A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = BS2HQRSW79;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = VoiceGuardShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = VoiceGuardShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.example.VoiceGuardMobile.VoiceGuardShareExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -358,7 +548,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -431,7 +621,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -469,6 +659,15 @@
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
 				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1A8946572DCAF1A40074D2A4 /* Build configuration list for PBXNativeTarget "VoiceGuardShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A8946582DCAF1A40074D2A4 /* Debug */,
+				1A8946592DCAF1A40074D2A4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

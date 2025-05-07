@@ -1,11 +1,14 @@
 import UIKit
+import UserNotifications
 import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
 import AVFoundation
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {  
+  // Shared voicemail path from extension
+  static var sharedVoicemailPath: String? = nil
   var window: UIWindow?
 
   var reactNativeDelegate: ReactNativeDelegate?
@@ -13,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(
     _ application: UIApplication,
-    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
+    // Check for shared voicemail from extension
+    checkForSharedVoicemail()
     // Configure AVAudioSession for recording
     do {
       let audioSession = AVAudioSession.sharedInstance()
@@ -64,6 +69,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     )
 
     return true
+  }
+  
+  // Handle URL scheme for opening from Share Extension
+  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+    if url.scheme == "voiceguard" && url.host == "sharedVoicemail" {
+      // Check for shared voicemail when app is opened via URL scheme
+      checkForSharedVoicemail()
+      return true
+    }
+    return false
+  }
+  
+  // Check for shared voicemail from extension
+  private func checkForSharedVoicemail() {
+    // Access shared UserDefaults
+    if let sharedDefaults = UserDefaults(suiteName: "group.org.reactjs.native.example.voiceguard") {
+      // Check if we have a recently shared voicemail
+      if let path = sharedDefaults.string(forKey: "LastSharedVoicemailPath"),
+         let timestamp = sharedDefaults.object(forKey: "LastSharedVoicemailTimestamp") as? TimeInterval {
+        
+        // Only process if it was shared in the last 60 seconds
+        let currentTime = Date().timeIntervalSince1970
+        if currentTime - timestamp < 60 {
+          // Store the path for React Native to access
+          AppDelegate.sharedVoicemailPath = path
+          
+          // Clear the shared data to prevent reprocessing
+          sharedDefaults.removeObject(forKey: "LastSharedVoicemailPath")
+          sharedDefaults.removeObject(forKey: "LastSharedVoicemailTimestamp")
+          sharedDefaults.synchronize()
+          
+          print("✅ Found shared voicemail at path: \(path)")
+        }
+      }
+    }
   }
 }
 

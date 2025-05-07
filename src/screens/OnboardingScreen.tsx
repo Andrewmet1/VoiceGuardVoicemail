@@ -124,20 +124,20 @@ const OnboardingScreen: React.FC = () => {
     {
       id: '1',
       title: 'What VoiceGuard Does',
-      description: 'VoiceGuard AI protects you from scam calls by detecting synthetic (artificial) voices used by scammers.',
+      description: 'VoiceGuard AI protects you from scam voicemails by detecting synthetic (artificial) voices used by scammers.',
       icon: 'shield-check'
     },
     {
       id: '2',
       title: 'How It Works',
-      description: 'When you receive a suspicious call, put your phone on speaker, tap "Start Scan" on the home screen, and VoiceGuard will analyze the voice to determine if it\'s real or AI-generated.',
-      icon: 'phone-in-talk'
+      description: 'Save your suspicious voicemails to your device, then upload them to VoiceGuard. Our AI will analyze the voice to determine if it\'s real or AI-generated.',
+      icon: 'voicemail'
     },
     {
       id: '3',
-      title: 'Permissions Needed',
-      description: 'VoiceGuard needs microphone access to analyze voice patterns. Your privacy is protected - no recordings are sent to the internet unless you choose to enable cloud processing.',
-      icon: 'microphone'
+      title: 'File Access',
+      description: 'VoiceGuard needs access to your files to analyze saved voicemails. Your privacy is protected - no recordings are sent to the internet unless you choose to enable cloud processing.',
+      icon: 'file'
     },
   ];
 
@@ -161,8 +161,8 @@ const OnboardingScreen: React.FC = () => {
                 <Text style={styles.featureText}>Detects AI-generated voices</Text>
               </View>
               <View style={styles.featureItem}>
-                <CustomIcon name="phone" size={24} color="#4F46E5" />
-                <Text style={styles.featureText}>Works with any phone call</Text>
+                <CustomIcon name="voicemail" size={24} color="#4F46E5" />
+                <Text style={styles.featureText}>Works with saved voicemails</Text>
               </View>
               <View style={styles.featureItem}>
                 <CustomIcon name="lightning-bolt" size={24} color="#4F46E5" />
@@ -170,7 +170,7 @@ const OnboardingScreen: React.FC = () => {
               </View>
               <Text style={styles.tutorialText}>
                 Scammers use AI to create fake voices that sound like real people. 
-                VoiceGuard helps you identify these fake voices to avoid being scammed.
+                VoiceGuard helps you identify these fake voices in voicemails to avoid being scammed.
               </Text>
             </View>
           )}
@@ -184,9 +184,9 @@ const OnboardingScreen: React.FC = () => {
                   <Text style={styles.stepNumberText}>1</Text>
                 </View>
                 <View style={styles.stepContent}>
-                  <Text style={styles.stepTitle}>Put Call on Speaker</Text>
+                  <Text style={styles.stepTitle}>Save Your Voicemail</Text>
                   <Text style={styles.stepDescription}>
-                    When you receive a suspicious call, press the speaker button on your phone.
+                    When you receive a suspicious voicemail, save it to your device from your voicemail app.
                   </Text>
                 </View>
               </View>
@@ -196,9 +196,9 @@ const OnboardingScreen: React.FC = () => {
                   <Text style={styles.stepNumberText}>2</Text>
                 </View>
                 <View style={styles.stepContent}>
-                  <Text style={styles.stepTitle}>Complete the Checklist</Text>
+                  <Text style={styles.stepTitle}>Open VoiceGuard</Text>
                   <Text style={styles.stepDescription}>
-                    Check all three items on the home screen: speaker on, volume up, and phone number.
+                    Open the VoiceGuard app and tap on the "Scan Voicemail" button on the home screen.
                   </Text>
                 </View>
               </View>
@@ -208,9 +208,9 @@ const OnboardingScreen: React.FC = () => {
                   <Text style={styles.stepNumberText}>3</Text>
                 </View>
                 <View style={styles.stepContent}>
-                  <Text style={styles.stepTitle}>Tap "Start Scan"</Text>
+                  <Text style={styles.stepTitle}>Select Your Voicemail File</Text>
                   <Text style={styles.stepDescription}>
-                    Press the blue "Start Scan" button and let the caller speak for 5-10 seconds.
+                    Use the document picker to select the voicemail file you saved to your device.
                   </Text>
                 </View>
               </View>
@@ -222,7 +222,7 @@ const OnboardingScreen: React.FC = () => {
                 <View style={styles.stepContent}>
                   <Text style={styles.stepTitle}>View Results</Text>
                   <Text style={styles.stepDescription}>
-                    VoiceGuard will tell you if the voice is human or AI-generated.
+                    VoiceGuard will analyze the voicemail and tell you if the voice is human or AI-generated.
                   </Text>
                 </View>
               </View>
@@ -233,40 +233,38 @@ const OnboardingScreen: React.FC = () => {
             <View style={styles.permissionContainer}>
               <View style={styles.permissionItem}>
                 <CustomIcon 
-                  name="microphone" 
+                  name="file" 
                   size={32} 
-                  color={micPermissionGranted ? "#10B981" : "#4F46E5"} 
+                  color={"#4F46E5"} 
                 />
                 <View style={styles.permissionTextContainer}>
-                  <Text style={styles.permissionTitle}>Microphone Access</Text>
+                  <Text style={styles.permissionTitle}>File Access</Text>
                   <Text style={styles.permissionDescription}>
-                    Required to analyze voice patterns during calls
+                    Required to analyze saved voicemail files
                   </Text>
                 </View>
                 <View style={[
                   styles.permissionStatus,
-                  { backgroundColor: micPermissionGranted ? "#D1FAE5" : "#EEF2FF" }
+                  { backgroundColor: "#EEF2FF" }
                 ]}>
                   <Text style={[
                     styles.permissionStatusText,
-                    { color: micPermissionGranted ? "#10B981" : "#4F46E5" }
+                    { color: "#4F46E5" }
                   ]}>
-                    {micPermissionGranted ? "Granted" : "Required"}
+                    Required
                   </Text>
                 </View>
               </View>
               
-              {!micPermissionGranted && (
-                <TouchableOpacity 
-                  style={styles.permissionButton}
-                  onPress={requestMicPermission}
-                >
-                  <Text style={styles.permissionButtonText}>Grant Microphone Access</Text>
-                </TouchableOpacity>
-              )}
+              <TouchableOpacity 
+                style={styles.permissionButton}
+                onPress={() => {}}
+              >
+                <Text style={styles.permissionButtonText}>File access will be requested when needed</Text>
+              </TouchableOpacity>
               
               <Text style={styles.privacyText}>
-                VoiceGuard respects your privacy. We do not record or store your calls unless 
+                VoiceGuard respects your privacy. We do not share your voicemails with third parties unless 
                 you explicitly enable cloud processing in settings. All analysis is done on your 
                 device by default.
               </Text>

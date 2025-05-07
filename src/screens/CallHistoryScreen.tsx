@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert } from 'react-native';
+import React, { useState, useMemo } from 'react';
+import { View, Text, StyleSheet, FlatList, TouchableOpacity, Alert, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useCallDetection } from '../contexts/CallDetectionContext';
 import { RootStackParamList } from '../../App';
+import CustomIcon from '../components/CustomIcon';
 
 type CallHistoryScreenNavigationProp = StackNavigationProp<RootStackParamList, 'CallHistory'>;
 
@@ -13,11 +14,24 @@ const CallHistoryScreen: React.FC = () => {
   const { callHistory, deleteCallRecord } = useCallDetection();
   const [selectedFilter, setSelectedFilter] = useState<'all' | 'ai' | 'human'>('all');
 
-  const filteredCalls = callHistory.filter(call => {
-    if (selectedFilter === 'ai') return call.isAIDetected;
-    if (selectedFilter === 'human') return !call.isAIDetected;
-    return true;
-  });
+  // Use useMemo to prevent unnecessary re-rendering and ensure stable list items
+  const filteredCalls = useMemo(() => {
+    // Create a deduplicated list based on id
+    const uniqueCallMap = new Map();
+    callHistory.forEach(call => {
+      if (!uniqueCallMap.has(call.id)) {
+        uniqueCallMap.set(call.id, call);
+      }
+    });
+    
+    // Convert back to array and filter
+    const uniqueCalls = Array.from(uniqueCallMap.values());
+    return uniqueCalls.filter(call => {
+      if (selectedFilter === 'ai') return call.isAIDetected;
+      if (selectedFilter === 'human') return !call.isAIDetected;
+      return true;
+    });
+  }, [callHistory, selectedFilter]);
 
   const handleDeleteCall = (id: string) => {
     Alert.alert(
@@ -34,6 +48,12 @@ const CallHistoryScreen: React.FC = () => {
     );
   };
 
+  // Format date without live updates
+  const formatDate = (timestamp: number) => {
+    const date = new Date(timestamp);
+    return `${date.toLocaleDateString()} ${date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
+  };
+
   const renderCallItem = ({ item }: { item: typeof callHistory[0] }) => (
     <View style={styles.callItem}>
       <View style={styles.callIcon}>
@@ -46,7 +66,7 @@ const CallHistoryScreen: React.FC = () => {
       <View style={styles.callInfo}>
         <Text style={styles.phoneNumber}>{item.callerName || item.phoneNumber}</Text>
         <Text style={styles.callTime}>
-          {new Date(item.timestamp).toLocaleString()}
+          {formatDate(item.timestamp)}
         </Text>
         <View style={[
           styles.badge,
@@ -70,7 +90,19 @@ const CallHistoryScreen: React.FC = () => {
   );
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <TouchableOpacity
+          style={styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
+          <CustomIcon name="arrow-left" size={24} color="#1E3A8A" />
+        </TouchableOpacity>
+        <Text style={styles.title}>Scan History</Text>
+        <View style={styles.headerRight} />
+      </View>
+
       {/* Filters */}
       <View style={styles.filters}>
         <TouchableOpacity 
@@ -112,7 +144,7 @@ const CallHistoryScreen: React.FC = () => {
           </View>
         )}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -120,6 +152,27 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F3F4F6',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E5E7EB',
+  },
+  backButton: {
+    padding: 8,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#111827',
+  },
+  headerRight: {
+    width: 40,
   },
   filters: {
     flexDirection: 'row',

@@ -12,6 +12,9 @@ import SettingsScreen from './src/screens/SettingsScreen';
 import CallAlertScreen from './src/screens/CallAlertScreen';
 import OnboardingScreen from './src/screens/OnboardingScreen';
 import CallScanScreen from './src/screens/CallScanScreen';
+import VoicemailScanScreen from './src/screens/VoicemailScanScreen';
+import VoicemailResultScreen from './src/screens/VoicemailResultScreen';
+import VoicemailHelpScreen from './src/screens/VoicemailHelpScreen';
 
 // Contexts
 import { SettingsProvider, useSettings } from './src/contexts/SettingsContext';
@@ -76,6 +79,9 @@ export type RootStackParamList = {
   CallAlert: { callerId: string };
   CallScan: { phoneNumber?: string };
   CallHistory: undefined;
+  VoicemailScan: undefined;
+  VoicemailResult: { result: { genuine_score: number; spoof_score: number; result: string } };
+  VoicemailHelp: { deviceType?: 'ios' | 'android' };
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -167,6 +173,21 @@ const MainNavigator: React.FC = () => {
         name="CallScan" 
         component={CallScanScreen}
         options={{ title: 'Call Scan', headerShown: false }}
+      />
+      <Stack.Screen 
+        name="VoicemailScan" 
+        component={VoicemailScanScreen}
+        options={{ title: 'Voicemail Scan', headerShown: false }}
+      />
+      <Stack.Screen 
+        name="VoicemailResult" 
+        component={VoicemailResultScreen}
+        options={{ title: 'Voicemail Results', headerShown: false }}
+      />
+      <Stack.Screen 
+        name="VoicemailHelp" 
+        component={VoicemailHelpScreen}
+        options={{ title: 'Voicemail Help', headerShown: false }}
       />
     </Stack.Navigator>
   );

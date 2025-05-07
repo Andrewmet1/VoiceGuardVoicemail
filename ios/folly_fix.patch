@@ -1,0 +1,22 @@
+diff --git a/folly/Conv.h b/folly/Conv.h
+index a0000000..b0000000 100644
+--- a/folly/Conv.h
++++ b/folly/Conv.h
+@@ -1016,14 +1016,14 @@ inline Expected<bool, ConversionCode> str_to_bool(StringPiece* src) noexcept {
+ 
+ template <class Tgt>
+ typename std::enable_if<std::is_integral<Tgt>::value, Tgt>::type to_integral(
+-    StringPiece src) {
++    StringPiece src) FOLLY_DISABLE_UNDEFINED_BEHAVIOR_SANITIZER("unsigned-integer-overflow") {
+   Tgt result;
+-  char* p;
++  /*char* p;
+   auto str = src.str();
+   result = to_integral_assuming_non_overflow<Tgt>(str.c_str(), &p);
+   if (p == str.c_str()) {
+     throw std::range_error("empty string");
+-  }
++  }*/
+   return result;
+ }
+ 

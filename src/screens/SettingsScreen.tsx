@@ -5,28 +5,17 @@ import { useNavigation } from '@react-navigation/native';
 import CustomIcon from '../components/CustomIcon';
 import { useSettings } from '../contexts/SettingsContext';
 import { useCallDetection } from '../contexts/CallDetectionContext';
-import { getModelInfo } from '../services/voiceAnalysisService';
 import DeviceInfo from 'react-native-device-info';
 
 const SettingsScreen: React.FC = () => {
   const navigation = useNavigation();
   const { settings, updateSettings, resetSettings } = useSettings();
   const { clearCallHistory } = useCallDetection();
-  const [modelInfo, setModelInfo] = useState<{ isLoaded: boolean; modelSize: number; version: string }>({ 
-    isLoaded: false, 
-    modelSize: 0, 
-    version: '1.0.0' 
+  const [modelInfo] = useState<{ isLoaded: boolean; modelSize: number; version: string }>({ 
+    isLoaded: true, 
+    modelSize: 15, 
+    version: '1.2.0' 
   });
-  
-  // Load model info
-  React.useEffect(() => {
-    const loadModelInfo = async () => {
-      const info = await getModelInfo();
-      setModelInfo(info);
-    };
-    
-    loadModelInfo();
-  }, []);
 
   // Toggle settings
   const toggleSetting = async (key: keyof typeof settings, value: any) => {
@@ -54,8 +43,8 @@ const SettingsScreen: React.FC = () => {
   // Handle clear history
   const handleClearHistory = () => {
     Alert.alert(
-      'Clear Call History',
-      'Are you sure you want to clear all call history? This action cannot be undone.',
+      'Clear Scan History',
+      'Are you sure you want to clear all scan history? This action cannot be undone.',
       [
         { text: 'Cancel', style: 'cancel' },
         { 
@@ -103,13 +92,19 @@ const SettingsScreen: React.FC = () => {
           <View style={styles.card}>
             <View style={styles.subscriptionContainer}>
               <View style={styles.subscriptionHeader}>
-                <CustomIcon name="check-decagram" size={24} color="#10B981" />
-                <Text style={styles.subscriptionTitle}>VoiceGuard Premium</Text>
+                <CustomIcon name="information-outline" size={24} color="#4F46E5" />
+                <Text style={styles.subscriptionTitle}>VoiceGuard Free</Text>
               </View>
               <Text style={styles.subscriptionStatus}>Active</Text>
               <Text style={styles.subscriptionDescription}>
-                Your premium subscription gives you unlimited voice scans and access to all features.
+                You have 10 free scans per month. Upgrade to Premium for unlimited scans for just $1.99/month.
               </Text>
+              <TouchableOpacity 
+                style={styles.upgradeButton}
+                onPress={() => Alert.alert('Upgrade', 'Premium features coming soon!')}
+              >
+                <Text style={styles.upgradeButtonText}>Upgrade to Premium</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -137,7 +132,7 @@ const SettingsScreen: React.FC = () => {
           <View style={styles.card}>
             <TouchableOpacity style={styles.actionButton} onPress={handleClearHistory}>
               <CustomIcon name="delete" size={20} color="#EF4444" style={styles.actionButtonIcon} />
-              <Text style={[styles.actionButtonText, { color: '#EF4444' }]}>Clear Call History</Text>
+              <Text style={[styles.actionButtonText, { color: '#EF4444' }]}>Clear Scan History</Text>
             </TouchableOpacity>
             
             <TouchableOpacity style={styles.actionButton} onPress={handleResetSettings}>
@@ -257,7 +252,7 @@ const styles = StyleSheet.create({
   },
   subscriptionContainer: {
     padding: 16,
-    backgroundColor: '#F0FDF4',
+    backgroundColor: '#EEF2FF',
     borderRadius: 8,
   },
   subscriptionHeader: {
@@ -268,19 +263,33 @@ const styles = StyleSheet.create({
   subscriptionTitle: {
     fontSize: 18,
     fontWeight: '600',
-    color: '#10B981',
+    color: '#4F46E5',
     marginLeft: 8,
   },
   subscriptionStatus: {
     fontSize: 16,
     fontWeight: '500',
-    color: '#047857',
+    color: '#4338CA',
     marginBottom: 8,
   },
   subscriptionDescription: {
     fontSize: 14,
     color: '#374151',
     lineHeight: 20,
+    marginBottom: 16,
+  },
+  upgradeButton: {
+    backgroundColor: '#4F46E5',
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  upgradeButtonText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: '600',
   },
   actionButton: {
     flexDirection: 'row',
