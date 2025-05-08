@@ -152,7 +152,7 @@ const HomeScreen: React.FC = () => {
               </Text>
               <TouchableOpacity 
                 style={styles.petitionButton}
-                onPress={() => Linking.openURL('https://www.voiceguard.ai/petition')}
+                onPress={() => Linking.openURL('https://voiceguard.ai/pages/advocacy.html')}
               >
                 <Text style={styles.petitionButtonText}>Sign the Petition</Text>
               </TouchableOpacity>

@@ -97,7 +97,7 @@ const SettingsScreen: React.FC = () => {
               </View>
               <Text style={styles.subscriptionStatus}>Active</Text>
               <Text style={styles.subscriptionDescription}>
-                You have 10 free scans per month. Upgrade to Premium for unlimited scans for just $1.99/month.
+                You have 10 free scans per month. Upgrade to Premium for unlimited scans for just $2.99/month.
               </Text>
               <TouchableOpacity 
                 style={styles.upgradeButton}
